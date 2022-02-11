@@ -1,0 +1,26 @@
+<style>
+.anu{
+background-color:#ea151f;}
+</style>
+<nav class="navbar navbar-red bg-red anu">
+<a href="http://127.0.0.1:8000/">Home</a>
+
+<a href="http://127.0.0.1:8000/todos/">App Data</a>
+
+<a href="http://127.0.0.1:8000/todos/add/">Add Data</a>
+
+<a href="http://127.0.0.1:8000/todos/about/">Contact</a>
+
+<a href="http://127.0.0.1:8000/account/signup/">Signup</a>
+
+<a href="http://127.0.0.1:8000/account/login/">Login</a>
+
+<div>
+{%if user.is_authenticated%}
+<p>Hi, {{user.username}}!!Welcome <a href="{%url 'logout' %}">Logout</a></p>
+{%endif%}
+</div>
+
+<img width="150px" height="50px" src="https://support.livewireindia.com/tmp/images/live_wire_logo.jpg" alt="Livewirelogo">
+
+</nav>

@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{%block content%}
+<style>
+.amal{
+background-color:yellow;
+color:black;}
+</style>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<h3 align="center" style="color:red">Add Data</h3>
+<form align="center" method="post">
+{%csrf_token%}
+{{form.as_p}}
+<button class="amal" type="submit" name="savetodo">Submit</button>
+
+</form>
+
+<nav class="navbar navbar-dark bg-dark" style="margin-top:100px">
+<ul >
+<li>
+<a href="http://127.0.0.1:8000/">About us</a>
+<a href="http://127.0.0.1:8000/"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+91 9090909090</a>
+<a href="http://127.0.0.1:8000/"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;test@livewireindia.com</a>
+</li>
+</ul>
+</nav>
+
+{%endblock%}

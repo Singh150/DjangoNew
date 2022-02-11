@@ -1,0 +1,76 @@
+{% extends 'base.html'%}
+{%block content%}
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+th,td,tr{
+border:2px solid blue}
+h3{
+color:#0fb3b3}
+th{
+color:brown}
+</style>
+<h3 align="center">Course Data</h3>
+<table align="center" id="table">
+
+  <thead>
+     <tr>
+        <th>Title</th>
+		<th>Description</th>
+		<th>Fn</th>
+		<th>Created data</th>
+		<th>Updated data</th>
+		<th>Edit/Delete</th>
+     </tr>	 
+  
+  </thead>
+  
+  <tbody>
+  
+  {%for todo in todos%}
+     <tr>
+	   <td>{{todo.title}}</td>
+	   <td>{{todo.description}}</td>
+	   <td>{{todo.fn}}</td>
+	   <td>{{todo.created_at}}</td>
+	   <td>{{todo.updated_at}}</td>
+	   <td>
+	    <a href="{%url 'todo:todoedit' todo.id%}">
+		<button style="color:red; background-color:yellow">Edit</button></a>
+		
+		<a href="{%url 'todo:tododelete' todo.id%}">
+		<button style="color:red; background-color:yellow">Delete</button></a>
+	   
+	   </td>
+	 
+	 
+	 </tr>
+  {%endfor%}
+  </tbody>
+
+</table>
+<br><br>
+<button style="margin-left:600px"><a id="downloadLink" onclick="exportF(this)">Download into Excel</a></button>
+
+<nav class="navbar navbar-dark bg-dark" style="margin-top:350px">
+<ul >
+<li>
+<a href="http://127.0.0.1:8000/">About us</a>
+<a href="http://127.0.0.1:8000/"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+91 9090909090</a>
+<a href="http://127.0.0.1:8000/"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;test@livewireindia.com</a>
+</li>
+</ul>
+</nav>
+<script>
+function exportF(elem) {
+  var table = document.getElementById("table");
+  var html = table.outerHTML;
+  var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+  elem.setAttribute("href", url);
+  elem.setAttribute("download", "export.xls"); // Choose the file name
+  return false;
+}
+
+</script>
+
+{%endblock%}

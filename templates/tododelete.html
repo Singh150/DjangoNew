@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{%block content%}
+
+<form align="center" method="POST">
+{%csrf_token%}
+
+<p>Are you sure?</p >
+<p>Yes want to delete "{{todo.title}}?" </p>  
+<button style="color:red; background-color:yellow" type="submit" name="tododelete">Delete</button>
+</form>
+
+{%endblock%}

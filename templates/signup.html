@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{%block content%}
+<body style="background-color:pink">
+<h3 align="center" style="color:red">Signup Form</h3>
+<form style="margin-left:400px" method="post">
+{%csrf_token%}
+{{form.as_p}}
+<button class="amal" type="submit" name="signup">Signup</button>
+
+</form>
+
+<nav class="navbar navbar-dark bg-dark" style="margin-top:220px">
+<ul >
+<li>
+<a href="http://127.0.0.1:8000/">About us</a>
+<a href="http://127.0.0.1:8000/"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+91 9090909090</a>
+<a href="http://127.0.0.1:8000/"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;test@livewireindia.com</a>
+</li>
+</ul>
+</nav>
+</body>
+{%endblock%}
